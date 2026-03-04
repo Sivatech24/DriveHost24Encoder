@@ -1,0 +1,59 @@
+﻿<Window x:Class="DriveHost24Encoder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DriveHost24Encoder"
+        mc:Ignorable="d"
+        Title="DriveHost24 4K Vertical Encoder" Height="700" Width="900">
+    <Grid Margin="15">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <!-- INPUT SECTION -->
+        <StackPanel Orientation="Vertical">
+
+            <TextBlock Text="Input Video"/>
+            <TextBox x:Name="txtInput" Text="input.mov"/>
+
+            <TextBlock Text="Clip Name"/>
+            <TextBox x:Name="txtClipName"
+                     Text="Euro Truck Simulator 2 Volvo FH4 Globetrotter XL 700 hp 515kW DriveHost24"/>
+
+            <TextBlock Text="Output Width"/>
+            <TextBox x:Name="txtWidth" Text="2160"/>
+
+            <TextBlock Text="Output Height"/>
+            <TextBox x:Name="txtHeight" Text="3840"/>
+
+            <TextBlock Text="FPS"/>
+            <TextBox x:Name="txtFPS" Text="60"/>
+
+            <TextBlock Text="Target Bitrate"/>
+            <TextBox x:Name="txtBitrate" Text="250M"/>
+
+            <TextBlock Text="Profile"/>
+            <ComboBox x:Name="cmbProfile"/>
+        </StackPanel>
+
+        <!-- BUTTONS -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,20,0,0">
+            <Button Content="Start Encoding" Click="Start_Click" Width="150"/>
+            <Button Content="Resume" Click="Resume_Click" Width="100" Margin="10,0"/>
+            <Button Content="Save Profile" Click="SaveProfile_Click" Width="120"/>
+            <Button Content="Edit Profile" Click="EditProfile_Click" Width="120"/>
+        </StackPanel>
+
+        <!-- LOG VIEWER -->
+        <TextBox Grid.Row="2"
+                 x:Name="txtLog"
+                 IsReadOnly="True"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap"/>
+
+    </Grid>
+</Window>
